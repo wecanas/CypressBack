@@ -1,0 +1,9 @@
+Parece que falta la dependencia '@bahmutov/cypress-esbuild-preprocessor', necesaria para la configuración moderna del preprocesador Gherkin.
+
+Por favor, ejecuta este comando en tu terminal para instalarla:
+
+npm install --save-dev @bahmutov/cypress-esbuild-preprocessor
+
+Luego vuelve a abrir Cypress con:
+
+npx cypress open

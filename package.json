@@ -1,5 +1,11 @@
 {
   "devDependencies": {
-    "cypress": "^14.5.1"
+    "@badeball/cypress-configuration": "^6.1.1",
+    "@badeball/cypress-cucumber-preprocessor": "^23.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
+    "@cypress/webpack-preprocessor": "^7.0.1",
+    "cypress": "^14.5.1",
+    "esbuild": "^0.25.9",
+    "preprocessor": "^1.4.0"
   }
 }

@@ -1,11 +1,21 @@
 const { defineConfig } = require("cypress");
+const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
+const addCucumberPreprocessorPlugin = require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
 
 module.exports = defineConfig({
-  responseTimeout: 30000, // Cambia el tiempo de espera de respuesta a 30 segundos
+  responseTimeout: 30000,
   e2e: {
-    
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+    specPattern: "cypress/e2e/**/*.feature",
+    async setupNodeEvents(on, config) {
+      await addCucumberPreprocessorPlugin(on, config);
+      on(
+        "file:preprocessor",
+        createBundler({
+          plugins: [createEsbuildPlugin(config)],
+        })
+      );
+      return config;
     },
   },
 });
